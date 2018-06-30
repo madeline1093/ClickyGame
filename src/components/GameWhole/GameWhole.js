@@ -4,7 +4,7 @@ import Footer from '../Footer';
 import Container from "./../Container";
 import Header from '../Header';
 import ClickItem from '../ClickItem';
-import imgs from "../../imgs.json"
+import imgs from "../../../src/imgs.json"
 
 class GameWhole extends Component {
     state ={
@@ -33,6 +33,14 @@ class GameWhole extends Component {
             this.handleIncorrect(newImgs);
         }
     };
+
+    handleCorrect = newImgs => {
+        console.log("yay!");
+    };
+
+    handleIncorrect = newImgs => {
+        console.log('boo!');
+    };
     shuffleImages = imgs => {
         let i = imgs.length -1;
         while (i>0) {
@@ -50,8 +58,8 @@ class GameWhole extends Component {
                 <p>hi</p>
                 
                  <NavTabs />
-  {/*                <Header />
-                <Container> */}
+                {/* <Header /> */}
+                <Container> 
                     {this.state.imgs.map(imgs => (
                         <ClickItem 
                             key={imgs.id}
@@ -61,8 +69,8 @@ class GameWhole extends Component {
                         />
                     ))}
                     
-{/*                 </Container>
-                <Footer />  */} 
+                </Container>
+                {/* <Footer />  */} 
             </div>
         );
     }

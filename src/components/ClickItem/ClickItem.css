@@ -1,0 +1,9 @@
+.click-item{
+    background-size: cover;
+    background-position: center;
+    height: 175px;
+    width: 175px;
+    cursor: pointer;
+    margin: 10px;
+
+}

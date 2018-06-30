@@ -8,5 +8,55 @@
         "id":2,
         "image": "/assets/images/emily.jpg",
         "clicked": false
+    },
+    {
+        "id":3,
+        "image": "/assets/images/Sally.jpg",
+        "clicked": false
+    },
+    {
+        "id":4,
+        "image": "/assets/images/scraps.jpg",
+        "clicked": false
+    },
+    {
+        "id":5,
+        "image": "/assets/images/victor.png",
+        "clicked": false
+    },
+    {
+        "id":6,
+        "image": "/assets/images/barbaraMaitland.jpg",
+        "clicked": false
+    },
+    {
+        "id":7,
+        "image": "/assets/images/Betelgeuse.jpg",
+        "clicked": false
+    },
+    {
+        "id":8,
+        "image": "/assets/images/CharlesDeetz.png",
+        "clicked": false
+    },
+    {
+        "id":9,
+        "image": "/assets/images/Deetz.jpg",
+        "clicked": false
+    },
+    {
+        "id":10,
+        "image": "/assets/images/Jack.jpg",
+        "clicked": false
+    },
+    {
+        "id":11,
+        "image": "/assets/images/Mayor_of_Halloween_Town.png",
+        "clicked": false
+    },
+    {
+        "id":5,
+        "image": "/assets/images/Victoria2.jpg",
+        "clicked": false
     }
 ]
