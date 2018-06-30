@@ -2,7 +2,10 @@ import React from "react";
 
 const Header = ({ children }) => (
     <div 
-        className="header"
+        className="jumbotron"
     >
+    Welcome to the Clicky Game!
     </div>
-)
+);
+
+export default Header;

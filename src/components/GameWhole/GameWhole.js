@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NavTabs from "./../NavTabs";
 import Footer from '../Footer';
 import Container from "./../Container";
-import Header from '../Header';
+import Header from "../Header";
 import ClickItem from '../ClickItem';
 import imgs from "../../../src/imgs.json"
 
@@ -10,7 +10,7 @@ class GameWhole extends Component {
     state ={
         imgs,
         score: 0,
-        HighScore: 0
+        highScore: 0
     };
     componentDidMount() {
         this.setState({imgs: this.shuffleImages(this.state.imgs) });
@@ -35,11 +35,20 @@ class GameWhole extends Component {
     };
 
     handleCorrect = newImgs => {
-        console.log("yay!");
+        console.log(newImgs);
+        const newScore = newImgs.score +1;
+        const newHighScore = newScore > newImgs.highScore ? newScore : newImgs.highScore;
+        this.setState({
+            imgs: this.shuffleImages(newImgs),
+            score: newScore,
+            highScore: newHighScore,
+        });
     };
 
     handleIncorrect = newImgs => {
         console.log('boo!');
+        this.shuffleImages(newImgs);
+
     };
     shuffleImages = imgs => {
         let i = imgs.length -1;
@@ -51,14 +60,14 @@ class GameWhole extends Component {
             i--;
         }
         return imgs;
-    }
+    };
     render () {
         return (
             <div>
                 <p>hi</p>
                 
-                 <NavTabs />
-                {/* <Header /> */}
+                 <NavTabs score={this.state.score} highScore={this.state.highScore} />
+                <Header /> 
                 <Container> 
                     {this.state.imgs.map(imgs => (
                         <ClickItem 
@@ -70,7 +79,7 @@ class GameWhole extends Component {
                     ))}
                     
                 </Container>
-                {/* <Footer />  */} 
+                <Footer /> 
             </div>
         );
     }
