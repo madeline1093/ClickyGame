@@ -9,7 +9,7 @@ const NavTabs = props => (
                      <a href='/'>CLICKY GAME</a>
                 </li>
                 <li>
-                    <Score score={props.score} topScore = {props.topScore} />
+                    <Score score={props.score} topScore = {props.highScore} />
                 </li>
                 <li>
                     Score: {props.score}|| High Score: {props.highScore}

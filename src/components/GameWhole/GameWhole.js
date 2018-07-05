@@ -20,24 +20,22 @@ class GameWhole extends Component {
         let newImgs = this.state.imgs.map(item => {
             let newItem = { ...item};
             if (newItem.id === id) {
-                if(!newItem.clicked === true) {
+                if(!newItem.clicked) {
                     newItem.clicked = true;
                     guessedCorrectly = true;
                 }
             }
             return newItem;
         });
-        if (guessedCorrectly) {
-            this.handleCorrect(newImgs);
-        } else {
-            this.handleIncorrect(newImgs);
-        }
+        guessedCorrectly
+            ? this.handleCorrect(newImgs)
+            : this.handleIncorrect(newImgs);
     };
 
     handleCorrect = newImgs => {
-        console.log(newImgs);
-        const newScore = newImgs.score +1;
-        const newHighScore = newScore > newImgs.highScore ? newScore : newImgs.highScore;
+        const {highScore, score} = this.state;
+        const newScore = score +1;
+        const newHighScore = newScore > highScore ? newScore : highScore;
         this.setState({
             imgs: this.shuffleImages(newImgs),
             score: newScore,
@@ -46,9 +44,10 @@ class GameWhole extends Component {
     };
 
     handleIncorrect = newImgs => {
-        console.log('boo!');
-        this.shuffleImages(newImgs);
-
+        this.setState({
+            newImgs: this.resetData(newImgs),
+            score: 0
+        });
     };
     shuffleImages = imgs => {
         let i = imgs.length -1;
@@ -60,6 +59,12 @@ class GameWhole extends Component {
             i--;
         }
         return imgs;
+    };
+
+    resetData = data =>{
+        const resetData = data.map(item => ({ ...item, clicked: false}));
+        console.log('reset');
+        return this.shuffleImages(resetData);
     };
     render () {
         return (
